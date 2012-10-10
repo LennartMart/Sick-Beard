@@ -237,7 +237,7 @@ class TORRENTZCache(tvcache.TVCache):
         search_url = self._addSearchSites(url)
                
         logger.log(self.provider.name + u" cache update URL: " + search_url)
-
+        search_url = search_url.lower().replace(" ", "+")
         data = self.provider.getURL(search_url)
         return data
     
