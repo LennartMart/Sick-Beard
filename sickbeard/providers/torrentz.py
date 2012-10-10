@@ -232,7 +232,7 @@ class TORRENTZCache(tvcache.TVCache):
         if sickbeard.TORRENTZ_VERIFIED:
             params.update({"baseurl" : "feed_verified"})
         else:
-            params.update({"baseurl" : "feedA"})
+            params.update({"baseurl" : "feed"})
         url = self.provider.url + '%(baseurl)s?q=' % params
         search_url = self._addSearchSites(url)
                
