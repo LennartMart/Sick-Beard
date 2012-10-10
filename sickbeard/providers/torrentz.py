@@ -105,35 +105,7 @@ class TORRENTZProvider(generic.TorrentProvider):
             else:
                 searchURL = self.url + "%(baseurl)s?q=%(show_name)s S%(season)02dE%(episode)02d" % params
             
-            if sickbeard.TORRENTZ_SITE_1337X:
-                searchURL += " site%3A1337x.org"
-                                
-            if sickbeard.TORRENTZ_SITE_FENOPY:
-                searchURL += " site%3Afenopy.eu"
-            
-            if sickbeard.TORRENTZ_SITE_KATPH:
-                searchURL += " site%3Akat.ph"
-            
-            if sickbeard.TORRENTZ_SITE_MININOVA:
-                searchURL += " site%3Amininova.org"
-            
-            if sickbeard.TORRENTZ_SITE_TPB:
-                searchURL += " site%3Athepiratebay.se"                
-            
-            if sickbeard.TORRENTZ_SITE_PUBLICHD:
-                searchURL += " site%3Apublichd.eu"  
-            
-            if sickbeard.TORRENTZ_SITE_TORRENTDOWNLOADS:
-                searchURL += " site%3Atorrentdownloads.net"
-                  
-            if sickbeard.TORRENTZ_SITE_TORRENTFUNK:
-                searchURL += " site%3Atorrentfunk.com"
-                  
-            if sickbeard.TORRENTZ_SITE_TORRENTHOUND:
-                searchURL += " site%3Atorrenthound.com" 
-                 
-            if sickbeard.TORRENTZ_SITE_TORRENTREACTOR:
-                searchURL += " site%3Atorrentreactor.net" 
+            searchURL = self.cache._addSearchSites(searchURL);
                  
             searchURL = searchURL.lower().replace(" ", "+")
             
@@ -222,6 +194,37 @@ class TORRENTZCache(tvcache.TVCache):
         # only poll every 15 minutes max
         self.minTime = 15
 
+    def _addSearchSites(self,url):
+        if sickbeard.TORRENTZ_SITE_1337X:
+            url += " site%3A1337x.org"
+                            
+        if sickbeard.TORRENTZ_SITE_FENOPY:
+            url += " site%3Afenopy.eu"
+        
+        if sickbeard.TORRENTZ_SITE_KATPH:
+            url += " site%3Akat.ph"
+        
+        if sickbeard.TORRENTZ_SITE_MININOVA:
+            url += " site%3Amininova.org"
+        
+        if sickbeard.TORRENTZ_SITE_TPB:
+            url += " site%3Athepiratebay.se"                
+        
+        if sickbeard.TORRENTZ_SITE_PUBLICHD:
+            url += " site%3Apublichd.eu"  
+        
+        if sickbeard.TORRENTZ_SITE_TORRENTDOWNLOADS:
+            url += " site%3Atorrentdownloads.net"
+              
+        if sickbeard.TORRENTZ_SITE_TORRENTFUNK:
+            url += " site%3Atorrentfunk.com"
+              
+        if sickbeard.TORRENTZ_SITE_TORRENTHOUND:
+            url += " site%3Atorrenthound.com" 
+             
+        if sickbeard.TORRENTZ_SITE_TORRENTREACTOR:
+            url += " site%3Atorrentreactor.net" 
+        return url
     def _getRSSData(self):
         params = { }
         
@@ -230,6 +233,7 @@ class TORRENTZCache(tvcache.TVCache):
         else:
             params.update({"baseurl" : "feedA"})
         url = self.provider.url + '%(baseurl)s?q=' % params
+        search_url = self._addSearchSites(url)
                
         logger.log(self.provider.name + u" cache update URL: " + url)
 
