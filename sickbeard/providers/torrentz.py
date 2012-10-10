@@ -104,7 +104,37 @@ class TORRENTZProvider(generic.TorrentProvider):
                 searchURL = self.url + "%(baseurl)s?q=%(show_name)s S%(season)02d" % params
             else:
                 searchURL = self.url + "%(baseurl)s?q=%(show_name)s S%(season)02dE%(episode)02d" % params
-                
+            
+            if sickbeard.TORRENTZ_SITE_1337X:
+                searchURL += " site%3A1337x.org"
+                                
+            if sickbeard.TORRENTZ_SITE_FENOPY:
+                searchURL += " site%3Afenopy.eu"
+            
+            if sickbeard.TORRENTZ_SITE_KATPH:
+                searchURL += " site%3Akat.ph"
+            
+            if sickbeard.TORRENTZ_SITE_MININOVA:
+                searchURL += " site%3Amininova.org"
+            
+            if sickbeard.TORRENTZ_SITE_TPB:
+                searchURL += " site%3Athepiratebay.se"                
+            
+            if sickbeard.TORRENTZ_SITE_PUBLICHD:
+                searchURL += " site%3Apublichd.eu"  
+            
+            if sickbeard.TORRENTZ_SITE_TORRENTDOWNLOADS:
+                searchURL += " site%3Atorrentdownloads.net"
+                  
+            if sickbeard.TORRENTZ_SITE_TORRENTFUNK:
+                searchURL += " site%3Atorrentfunk.com"
+                  
+            if sickbeard.TORRENTZ_SITE_TORRENTHOUND:
+                searchURL += " site%3Atorrenthound.com" 
+                 
+            if sickbeard.TORRENTZ_SITE_TORRENTREACTOR:
+                searchURL += " site%3Atorrentreactor.net" 
+                 
             searchURL = searchURL.lower().replace(" ", "+")
             
             logger.log(u"Search string: " + searchURL)

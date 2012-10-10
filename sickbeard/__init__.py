@@ -172,6 +172,16 @@ KICKASS = False
 
 TORRENTZ = False
 TORRENTZ_VERIFIED = False
+TORRENTZ_SITE_1337X = False
+TORRENTZ_SITE_FENOPY = False
+TORRENTZ_SITE_KATPH = False
+TORRENTZ_SITE_MININOVA = False
+TORRENTZ_SITE_TPB = False
+TORRENTZ_SITE_PUBLICHD = False
+TORRENTZ_SITE_TORRENTDOWNLOADS = False
+TORRENTZ_SITE_TORRENTFUNK = False
+TORRENTZ_SITE_TORRENTHOUND = False
+TORRENTZ_SITE_TORRENTREACTOR = False
 
 BTN = False
 BTN_API_KEY = None
@@ -339,6 +349,8 @@ def initialize(consoleLogging=True):
                 PLEX_SERVER_HOST, PLEX_HOST, PLEX_USERNAME, PLEX_PASSWORD, \
                 showUpdateScheduler, __INITIALIZED__, LAUNCH_BROWSER, showList, loadingShowList, \
                 KICKASS, TORRENTZ, TORRENTZ_VERIFIED, \
+                TORRENTZ_SITE_1337X ,TORRENTZ_SITE_FENOPY ,TORRENTZ_SITE_KATPH ,TORRENTZ_SITE_MININOVA , \
+                TORRENTZ_SITE_TPB ,TORRENTZ_SITE_PUBLICHD ,TORRENTZ_SITE_TORRENTDOWNLOADS ,TORRENTZ_SITE_TORRENTFUNK ,TORRENTZ_SITE_TORRENTHOUND ,TORRENTZ_SITE_TORRENTREACTOR ,\
                 NZBS, NZBS_UID, NZBS_HASH, EZRSS, DTT, DTT_NORAR, DTT_SINGLE, THEPIRATEBAY, THEPIRATEBAY_TRUSTED, THEPIRATEBAY_PROXY, THEPIRATEBAY_PROXY_URL, TVTORRENTS, TVTORRENTS_DIGEST, TVTORRENTS_HASH, BTN, BTN_API_KEY, TORRENT_DIR, USENET_RETENTION, SOCKET_TIMEOUT, \
                 SEARCH_FREQUENCY, DEFAULT_SEARCH_FREQUENCY, BACKLOG_SEARCH_FREQUENCY, \
                 QUALITY_DEFAULT, FLATTEN_FOLDERS_DEFAULT, STATUS_DEFAULT, \
@@ -511,7 +523,17 @@ def initialize(consoleLogging=True):
         KICKASS = bool(check_setting_int(CFG, 'KICKASS', 'kickass', 0))
         
         TORRENTZ = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz', 0))    
-        TORRENTZ_VERIFIED = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz_verified', 0))    
+        TORRENTZ_VERIFIED = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz_verified', 0))
+        TORRENTZ_SITE_1337X = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz_site_1337x', 0))
+        TORRENTZ_SITE_FENOPY = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz_site_fenopy', 0))
+        TORRENTZ_SITE_KATPH = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz_site_katph', 0))
+        TORRENTZ_SITE_MININOVA = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz_site_mininova', 0))
+        TORRENTZ_SITE_TPB = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz_site_tpb', 0))
+        TORRENTZ_SITE_PUBLICHD = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz_site_publichd', 0))
+        TORRENTZ_SITE_TORRENTDOWNLOADS = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz_site_torrentdownloads', 0))
+        TORRENTZ_SITE_TORRENTFUNK = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz_site_torrentfunk', 0))
+        TORRENTZ_SITE_TORRENTHOUND = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz_site_torrenthound', 0))
+        TORRENTZ_SITE_TORRENTREACTOR = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz_site_torrentreactor', 0))
 
         NZBS = bool(check_setting_int(CFG, 'NZBs', 'nzbs', 0))
         NZBS_UID = check_setting_str(CFG, 'NZBs', 'nzbs_uid', '')
@@ -1047,6 +1069,16 @@ def save_config():
     new_config['TORRENTZ'] = {}
     new_config['TORRENTZ']['torrentz'] = int(TORRENTZ)
     new_config['TORRENTZ']['torrentz_verified'] = int(TORRENTZ_VERIFIED)
+    new_config['TORRENTZ']['torrentz_site_1337x'] = int(TORRENTZ_SITE_1337X)
+    new_config['TORRENTZ']['torrentz_site_fenopy'] = int(TORRENTZ_SITE_FENOPY)
+    new_config['TORRENTZ']['torrentz_site_katph'] = int(TORRENTZ_SITE_KATPH)
+    new_config['TORRENTZ']['torrentz_site_mininova'] = int(TORRENTZ_SITE_MININOVA)    
+    new_config['TORRENTZ']['torrentz_site_tpb'] = int(TORRENTZ_SITE_TPB)
+    new_config['TORRENTZ']['torrentz_site_publichd'] = int(TORRENTZ_SITE_PUBLICHD)
+    new_config['TORRENTZ']['torrentz_site_torrentdownloads'] = int(TORRENTZ_SITE_TORRENTDOWNLOADS)
+    new_config['TORRENTZ']['torrentz_site_torrentfunk'] = int(TORRENTZ_SITE_TORRENTFUNK)
+    new_config['TORRENTZ']['torrentz_site_torrenthound'] = int(TORRENTZ_SITE_TORRENTHOUND)
+    new_config['TORRENTZ']['torrentz_site_torrentreactor'] = int(TORRENTZ_SITE_TORRENTREACTOR)
     
     new_config['THEPIRATEBAY'] = {}
     new_config['THEPIRATEBAY']['thepiratebay'] = int(THEPIRATEBAY)

@@ -1051,6 +1051,9 @@ class ConfigProviders:
  					  btn_api_key=None,
                       dtt_norar = None, dtt_single = None, newzbin_username=None, newzbin_password=None,
                       torrentz_verified = None,
+                      torrentz_site_1337x = None, torrentz_site_fenopy = None, torrentz_site_katph = None, torrentz_site_mininova = None,
+                      torrentz_site_tpb = None, torrentz_site_publichd = None, torrentz_site_torrentdownloads = None, torrentz_site_torrentfunk = None,
+                      torrentz_site_torrenthound = None, torrentz_site_torrentreactor = None,
                       provider_order=None):
 
         results = []
@@ -1168,6 +1171,77 @@ class ConfigProviders:
             torrentz_verified = 0
 
         sickbeard.TORRENTZ_VERIFIED = torrentz_verified
+
+        if torrentz_site_1337x == "on":
+            torrentz_site_1337x = 1
+        else:
+            torrentz_site_1337x = 0
+
+        sickbeard.TORRENTZ_SITE_1337X = torrentz_site_1337x
+
+        if torrentz_site_fenopy == "on":
+            torrentz_site_fenopy = 1
+        else:
+            torrentz_site_fenopy = 0
+
+        sickbeard.TORRENTZ_SITE_FENOPY = torrentz_site_fenopy
+
+        if torrentz_site_katph == "on":
+            torrentz_site_katph = 1
+        else:
+            torrentz_site_katph = 0
+
+        sickbeard.TORRENTZ_SITE_KATPH = torrentz_site_katph
+
+        if torrentz_site_mininova == "on":
+            torrentz_site_mininova = 1
+        else:
+            torrentz_site_mininova = 0
+
+        sickbeard.TORRENTZ_SITE_MININOVA = torrentz_site_mininova
+        
+        if torrentz_site_tpb == "on":
+            torrentz_site_tpb = 1
+        else:
+            torrentz_site_tpb = 0
+
+        sickbeard.TORRENTZ_SITE_TPB = torrentz_site_tpb
+        
+        if torrentz_site_publichd == "on":
+            torrentz_site_publichd = 1
+        else:
+            torrentz_site_publichd = 0
+
+        sickbeard.TORRENTZ_SITE_PUBLICHD = torrentz_site_publichd
+
+        if torrentz_site_torrentdownloads == "on":
+            torrentz_site_torrentdownloads = 1
+        else:
+            torrentz_site_torrentdownloads = 0
+
+        sickbeard.TORRENTZ_SITE_TORRENTDOWNLOADS = torrentz_site_torrentdownloads
+        
+        if torrentz_site_torrentfunk == "on":
+            torrentz_site_torrentfunk = 1
+        else:
+            torrentz_site_torrentfunk = 0
+
+        sickbeard.TORRENTZ_SITE_TORRENTFUNK = torrentz_site_torrentfunk
+
+        if torrentz_site_torrenthound == "on":
+            torrentz_site_torrenthound = 1
+        else:
+            torrentz_site_torrenthound = 0
+
+        sickbeard.TORRENTZ_SITE_TORRENTHOUND = torrentz_site_torrenthound
+
+        if torrentz_site_torrentreactor == "on":
+            torrentz_site_torrentreactor = 1
+        else:
+            torrentz_site_torrentreactor = 0
+
+        sickbeard.TORRENTZ_SITE_TORRENTREACTOR = torrentz_site_torrentreactor
+
         
         sickbeard.BTN_API_KEY = btn_api_key.strip()
 

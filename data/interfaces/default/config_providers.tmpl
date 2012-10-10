@@ -266,6 +266,81 @@
                                 <span class="component-title">Only Verified</span>
                                 <span class="component-desc">Download only verified torrents?</span>
                             </label>
+                            <p> Choose from which sites you want to retrieve torrents. Every site will be used if none is checked!</p>
+                            <input type="checkbox" name="torrentz_site_1337x" id="torrentz_site_1337x" #if $sickbeard.TORRENTZ_SITE_1337X then "checked=\"checked\"" else ""#/>
+                            <label class="clearfix" for="torrentz_site_1337x">
+                                <span class="component-title">1337X.org</span>
+                                <span class="component-desc">See <a href="http://www.1337x.org">1337x.org</a></span>
+                            </label>                            
+                            <input type="checkbox" name="torrentz_site_bitsnoop" id="torrentz_site_bitsnoop" #if $sickbeard.TORRENTZ_SITE_BITSNOOP then "checked=\"checked\"" else ""#/>
+                            <label class="clearfix" for="torrentz_site_bitsnoop">
+                                <span class="component-title">BitSnoop</span>
+                                <span class="component-desc">See <a href="http://www.bitsnoop.com">BitSnoop.com</a></span>
+                            </label>
+                            <input type="checkbox" name="torrentz_site_fenopy" id="torrentz_site_fenopy" #if $sickbeard.TORRENTZ_SITE_FENOPY then "checked=\"checked\"" else ""#/>
+                            <label class="clearfix" for="torrentz_site_fenopy">
+                                <span class="component-title">fenopy</span>
+                                <span class="component-desc">See <a href="http://www.fenopy.eu">fenopy.eu</a></span>
+                            </label>
+                            <input type="checkbox" name="torrentz_site_h33t" id="torrentz_site_h33t" #if $sickbeard.TORRENTZ_SITE_H33T then "checked=\"checked\"" else ""#/>
+                            <label class="clearfix" for="torrentz_site_h33t">
+                                <span class="component-title">H33T</span>
+                                <span class="component-desc">See <a href="http://www.h33t.com">h33t.com</a></span>
+                            </label>
+                            <input type="checkbox" name="torrentz_site_katph" id="torrentz_site_katph" #if $sickbeard.TORRENTZ_SITE_KATPH then "checked=\"checked\"" else ""#/>
+                            <label class="clearfix" for="torrentz_site_katph">
+                                <span class="component-title">KickAss Torrents</span>
+                                <span class="component-desc">See <a href="http://www.kat.ph">Kat.ph</a></span>
+                            </label>
+                            <input type="checkbox" name="torrentz_site_mininova" id="torrentz_site_mininova" #if $sickbeard.TORRENTZ_SITE_MININOVA then "checked=\"checked\"" else ""#/>
+                            <label class="clearfix" for="torrentz_site_mininova">
+                                <span class="component-title">Mininova</span>
+                                <span class="component-desc">See <a href="http://www.mininova.org">Mininova.org</a></span>
+                            </label>
+                            <input type="checkbox" name="torrentz_site_mnova" id="torrentz_site_mnova" #if $sickbeard.TORRENTZ_SITE_MNOVA then "checked=\"checked\"" else ""#/>
+                            <label class="clearfix" for="torrentz_site_mnova">
+                                <span class="component-title">Mnova</span>
+                                <span class="component-desc">See <a href="http://www.mnova.eu">Mnova.eu</a></span>
+                            </label>
+                            <input type="checkbox" name="torrentz_site_tpb" id="torrentz_site_tpb" #if $sickbeard.TORRENTZ_SITE_TPB then "checked=\"checked\"" else ""#/>
+                            <label class="clearfix" for="torrentz_site_tpb">
+                                <span class="component-title">The Pirate Bay</span>
+                                <span class="component-desc">See <a href="http://www.thepiratebay.se">thepiratebay.se</a></span>
+                            </label>                   
+                            <input type="checkbox" name="torrentz_site_publichd" id="torrentz_site_publichd" #if $sickbeard.TORRENTZ_SITE_PUBLICHD then "checked=\"checked\"" else ""#/>
+                            <label class="clearfix" for="torrentz_site_publichd">
+                                <span class="component-title">PublicHD</span>
+                                <span class="component-desc">See <a href="http://www.publichd.eu">PublicHD.eu</a></span>
+                            </label>
+                            <input type="checkbox" name="torrentz_site_torrentdownloads" id="torrentz_site_torrentdownloads" #if $sickbeard.TORRENTZ_SITE_TORRENTDOWNLOADS then "checked=\"checked\"" else ""#/>
+                            <label class="clearfix" for="torrentz_site_torrentdownloads">
+                                <span class="component-title">Torrent Downloads</span>
+                                <span class="component-desc">See <a href="http://www.torrentdownloads.net">torrentdownloads.net</a></span>
+                            </label>
+                            <input type="checkbox" name="torrentz_site_torrentfunk" id="torrentz_site_torrentfunk" #if $sickbeard.TORRENTZ_SITE_TORRENTFUNK then "checked=\"checked\"" else ""#/>
+                            <label class="clearfix" for="torrentz_site_torrentfunk">
+                                <span class="component-title">TorrentFunk</span>
+                                <span class="component-desc">See <a href="http://www.torrentfunk.com">torrentfunk.com</a></span>
+                            </label>
+                            <input type="checkbox" name="torrentz_site_torrenthound" id="torrentz_site_torrenthound" #if $sickbeard.TORRENTZ_SITE_TORRENTHOUND then "checked=\"checked\"" else ""#/>
+                            <label class="clearfix" for="torrentz_site_torrenthound">
+                                <span class="component-title">TorrentHound</span>
+                                <span class="component-desc">See <a href="http://www.torrenthound.com">torrenthound.com</a></span>
+                            </label>                            
+                            <input type="checkbox" name="torrentz_site_torrentreactor" id="torrentz_site_torrentreactor" #if $sickbeard.TORRENTZ_SITE_TORRENTREACTOR then "checked=\"checked\"" else ""#/>
+                            <label class="clearfix" for="torrentz_site_torrentreactor">
+                                <span class="component-title">TorrentReactor</span>
+                                <span class="component-desc">See <a href="http://www.torrentreactor.net">torrentreactor.net</a></span>
+                            </label>                            
+                            <input type="checkbox" name="torrentz_site_torrentzap" id="torrentz_site_torrentzap" #if $sickbeard.TORRENTZ_SITE_TORRENTZAP then "checked=\"checked\"" else ""#/>
+                            <label class="clearfix" for="torrentz_site_torrentzap">
+                                <span class="component-title">TorrentZap</span>
+                                <span class="component-desc">See <a href="http://www.torrentzap.com">torrentzap.com</a></span>
+                            </label>
+                            
+                            
+                            
+                            
                         </div>
 		    </div><!-- /torrentzDiv //-->
 <!-- end div for editing providers -->
