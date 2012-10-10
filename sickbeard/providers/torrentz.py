@@ -225,6 +225,7 @@ class TORRENTZCache(tvcache.TVCache):
         if sickbeard.TORRENTZ_SITE_TORRENTREACTOR:
             url += " site%3Atorrentreactor.net" 
         return url
+    
     def _getRSSData(self):
         params = { }
         
@@ -235,9 +236,9 @@ class TORRENTZCache(tvcache.TVCache):
         url = self.provider.url + '%(baseurl)s?q=' % params
         search_url = self._addSearchSites(url)
                
-        logger.log(self.provider.name + u" cache update URL: " + url)
+        logger.log(self.provider.name + u" cache update URL: " + search_url)
 
-        data = self.provider.getURL(url)
+        data = self.provider.getURL(search_url)
         return data
     
     def _parseItem(self, item):
