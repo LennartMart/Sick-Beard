@@ -232,12 +232,12 @@ class TORRENTZCache(tvcache.TVCache):
         if sickbeard.TORRENTZ_VERIFIED:
             params.update({"baseurl" : "feed_verified"})
         else:
-            params.update({"baseurl" : "feed"})
+            params.update({"baseurl" : "feedA"})
         url = self.provider.url + '%(baseurl)s?q=' % params
         search_url = self._addSearchSites(url)
                
         logger.log(self.provider.name + u" cache update URL: " + search_url)
-        search_url = search_url.lower().replace(" ", "+")
+        search_url = search_url.replace(" ", "+")
         data = self.provider.getURL(search_url)
         return data
     
