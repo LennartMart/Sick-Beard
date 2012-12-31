@@ -108,6 +108,7 @@ class WindowsUpdateManager(UpdateManager):
 
     def __init__(self):
         self._cur_version = None
+        self._cur_commit_hash = None
         self._newest_version = None
 
         self.gc_url = 'http://code.google.com/p/sickbeard/downloads/list'
@@ -310,7 +311,7 @@ class GitUpdateManager(UpdateManager):
         gh = github.GitHub()
 
         # find newest commit
-	logger.log(u"Checking updates on junalmeida/Sick-Beard/" + self.branch);
+        logger.log(u"Checking updates on junalmeida/Sick-Beard/" + self.branch)
         for curCommit in gh.commits('junalmeida', 'Sick-Beard', self.branch):
             if not self._newest_commit_hash:
                 self._newest_commit_hash = curCommit['sha']
@@ -374,7 +375,7 @@ class GitUpdateManager(UpdateManager):
         if not output:
             return self._git_error()
 
-        pull_regex = '(\d+) files? changed, (\d+) insertions?\(\+\), (\d+) deletions?\(\-\)'
+        pull_regex = '(\d+) .+,.+(\d+).+\(\+\),.+(\d+) .+\(\-\)'
 
         (files, insertions, deletions) = (None, None, None)
 

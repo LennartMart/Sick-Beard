@@ -30,7 +30,7 @@ from threading import Lock
 
 # apparently py2exe won't build these unless they're imported somewhere
 from sickbeard import providers, metadata
-from providers import kickass, torrentz, dtt
+from providers import kickass, torrentz, dtt, torrentleech
 from providers import ezrss, tvtorrents, btn,thepiratebay, nzbmatrix, nzbsrus, newznab, womble, newzbin, nzbs_org_old
 from sickbeard.config import CheckSection, check_setting_int, check_setting_str, ConfigMigrator
 
@@ -182,6 +182,10 @@ TORRENTZ_SITE_TORRENTDOWNLOADS = False
 TORRENTZ_SITE_TORRENTFUNK = False
 TORRENTZ_SITE_TORRENTHOUND = False
 TORRENTZ_SITE_TORRENTREACTOR = False
+
+TORRENTLEECH = False
+TORRENTLEECH_USERNAME = None
+TORRENTLEECH_PASSWORD = None
 
 BTN = False
 BTN_API_KEY = None
@@ -351,6 +355,7 @@ def initialize(consoleLogging=True):
                 KICKASS, TORRENTZ, TORRENTZ_VERIFIED, \
                 TORRENTZ_SITE_1337X ,TORRENTZ_SITE_FENOPY ,TORRENTZ_SITE_KATPH ,TORRENTZ_SITE_MININOVA , \
                 TORRENTZ_SITE_TPB ,TORRENTZ_SITE_PUBLICHD ,TORRENTZ_SITE_TORRENTDOWNLOADS ,TORRENTZ_SITE_TORRENTFUNK ,TORRENTZ_SITE_TORRENTHOUND ,TORRENTZ_SITE_TORRENTREACTOR ,\
+                TORRENTLEECH, TORRENTLEECH_USERNAME, TORRENTLEECH_PASSWORD, \
                 NZBS, NZBS_UID, NZBS_HASH, EZRSS, DTT, DTT_NORAR, DTT_SINGLE, THEPIRATEBAY, THEPIRATEBAY_TRUSTED, THEPIRATEBAY_PROXY, THEPIRATEBAY_PROXY_URL, TVTORRENTS, TVTORRENTS_DIGEST, TVTORRENTS_HASH, BTN, BTN_API_KEY, TORRENT_DIR, USENET_RETENTION, SOCKET_TIMEOUT, \
                 SEARCH_FREQUENCY, DEFAULT_SEARCH_FREQUENCY, BACKLOG_SEARCH_FREQUENCY, \
                 QUALITY_DEFAULT, FLATTEN_FOLDERS_DEFAULT, STATUS_DEFAULT, \
@@ -479,7 +484,7 @@ def initialize(consoleLogging=True):
             NZB_METHOD = 'blackhole'
         
         TORRENT_METHOD = check_setting_str(CFG, 'General', 'torrent_method', 'blackhole')
-        if TORRENT_METHOD not in ('blackhole', 'utorrent', 'transmission'):
+        if TORRENT_METHOD not in ('blackhole', 'utorrent', 'transmission', 'downloadstation'):
             TORRENT_METHOD = 'blackhole'
         DOWNLOAD_PROPERS = bool(check_setting_int(CFG, 'General', 'download_propers', 1))
 
@@ -534,6 +539,10 @@ def initialize(consoleLogging=True):
         TORRENTZ_SITE_TORRENTFUNK = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz_site_torrentfunk', 0))
         TORRENTZ_SITE_TORRENTHOUND = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz_site_torrenthound', 0))
         TORRENTZ_SITE_TORRENTREACTOR = bool(check_setting_int(CFG, 'TORRENTZ', 'torrentz_site_torrentreactor', 0))
+
+        TORRENTLEECH = bool(check_setting_int(CFG, 'TORRENTLEECH', 'torrentleech', 0))    
+        TORRENTLEECH_USERNAME = check_setting_str(CFG, 'TORRENTLEECH', 'torrentleech_username', '')   
+        TORRENTLEECH_PASSWORD = check_setting_str(CFG, 'TORRENTLEECH', 'torrentleech_password', '')   
 
         NZBS = bool(check_setting_int(CFG, 'NZBs', 'nzbs', 0))
         NZBS_UID = check_setting_str(CFG, 'NZBs', 'nzbs_uid', '')
@@ -1069,6 +1078,7 @@ def save_config():
     new_config['TORRENTZ'] = {}
     new_config['TORRENTZ']['torrentz'] = int(TORRENTZ)
     new_config['TORRENTZ']['torrentz_verified'] = int(TORRENTZ_VERIFIED)
+	
     new_config['TORRENTZ']['torrentz_site_1337x'] = int(TORRENTZ_SITE_1337X)
     new_config['TORRENTZ']['torrentz_site_fenopy'] = int(TORRENTZ_SITE_FENOPY)
     new_config['TORRENTZ']['torrentz_site_katph'] = int(TORRENTZ_SITE_KATPH)
@@ -1079,6 +1089,13 @@ def save_config():
     new_config['TORRENTZ']['torrentz_site_torrentfunk'] = int(TORRENTZ_SITE_TORRENTFUNK)
     new_config['TORRENTZ']['torrentz_site_torrenthound'] = int(TORRENTZ_SITE_TORRENTHOUND)
     new_config['TORRENTZ']['torrentz_site_torrentreactor'] = int(TORRENTZ_SITE_TORRENTREACTOR)
+
+ 
+    new_config['TORRENTLEECH'] = {}
+    new_config['TORRENTLEECH']['torrentleech'] = int(TORRENTLEECH)
+    new_config['TORRENTLEECH']['torrentleech_username'] = TORRENTLEECH_USERNAME
+    new_config['TORRENTLEECH']['torrentleech_password'] = TORRENTLEECH_PASSWORD
+
     
     new_config['THEPIRATEBAY'] = {}
     new_config['THEPIRATEBAY']['thepiratebay'] = int(THEPIRATEBAY)
